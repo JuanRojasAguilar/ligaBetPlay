@@ -1,4 +1,4 @@
-from liga_globals import clear_screen, reportes_title, global_equipos
+from .liga_globals import clear_screen, reportes_title, global_equipos
 
 def ganador_categoria(categoria, mensaje):
   print(reportes_title)
@@ -13,18 +13,18 @@ def ganador_categoria(categoria, mensaje):
   clear_screen()
 
 def equipo_mayor_goles():
-  ganador_categoria("GF", "goles")
+  ganador_categoria(5, "goles")
 
 def equipo_mayor_puntos():
-  ganador_categoria("TP", "puntos")
+  ganador_categoria(7, "puntos")
 
 def mayor_partidos_ganados():
-  ganador_categoria("PG", "partidos")
+  ganador_categoria(2, "partidos")
 
 def total_goles():
   goles = 0
   for equipo in global_equipos:
-    goles += equipo['GF']
+    goles += equipo[5]
   print(f"Se anotaron {goles} goles en el campeonato")
   input("Presiona ENTER para volver a la pantalla principal")
   clear_screen()
@@ -32,7 +32,7 @@ def total_goles():
 def promedio_goles():
   goles = 0
   for equipo in global_equipos:
-    goles += equipo["GF"]
+    goles += equipo[5]
   promedio = goles / len(global_equipos)
   print(f"Se anotaron en promedio {promedio} en el campeonato")
   input("Presiona ENTER para volver a la pantalla principal")

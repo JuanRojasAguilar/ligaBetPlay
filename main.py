@@ -1,6 +1,6 @@
-from menus_liga import menu_principal
+from modulos.menus_liga import menu_principal
 
-def main():
-    menu_principal()
-
+if __name__ == "__main__":
+    def main():
+        menu_principal()
 main()

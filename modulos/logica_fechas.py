@@ -1,4 +1,4 @@
-from liga_globals import fechas_title, clear_screen, global_equipos, encontrar_indice_equipo
+from .liga_globals import fechas_title, clear_screen, global_equipos, encontrar_indice_equipo
 
 dias_juegos = ["06-feb-2024", "09-feb-2024", "11-feb-2024", "13-feb-2024", "17-feb-2024"]
 
@@ -37,27 +37,29 @@ def editar_fecha(fecha):
   posicion_primer_equipo = global_equipos[indice_primer_equipo]
   posicion_segundo_equipo = global_equipos[indice_segundo_equipo]
 
-  posicion_primer_equipo['PJ'] += 1
-  posicion_primer_equipo['GF'] += goles_primer_equipo
-  posicion_primer_equipo['GC'] += goles_segundo_equipo
+  posicion_primer_equipo[0]
 
-  posicion_segundo_equipo['PJ'] += 1
-  posicion_segundo_equipo['GF'] += goles_segundo_equipo
-  posicion_segundo_equipo['GC'] += goles_primer_equipo
+  posicion_primer_equipo[1] += 1
+  posicion_primer_equipo[5] += goles_primer_equipo
+  posicion_primer_equipo[6] += goles_segundo_equipo
+
+  posicion_segundo_equipo[1] += 1
+  posicion_segundo_equipo[5] += goles_segundo_equipo
+  posicion_segundo_equipo[6] += goles_primer_equipo
 
   if goles_primer_equipo > goles_segundo_equipo:
-    posicion_primer_equipo['PG'] += 1
-    posicion_primer_equipo["TP"] += 2
-    posicion_segundo_equipo['PP'] += 1
+    posicion_primer_equipo[2] += 1
+    posicion_primer_equipo[7] += 2
+    posicion_segundo_equipo[3] += 1
   elif goles_segundo_equipo > goles_primer_equipo:
-    posicion_segundo_equipo["PG"] += 1
-    posicion_segundo_equipo["TP"] += 2
-    posicion_primer_equipo["PP"] += 1
+    posicion_segundo_equipo[2] += 1
+    posicion_segundo_equipo[7] += 2
+    posicion_primer_equipo[3] += 1
   else:
-    posicion_primer_equipo["PE"] += 1
-    posicion_primer_equipo["TP"] += 1
-    posicion_segundo_equipo["PE"] += 1
-    posicion_segundo_equipo["TP"] += 1
+    posicion_primer_equipo[4] += 1
+    posicion_primer_equipo[7] += 1
+    posicion_segundo_equipo[4] += 1
+    posicion_segundo_equipo[7] += 1
 
   print(posicion_primer_equipo, posicion_segundo_equipo, sep="\n")
   input("Presiona enter para volver al menú principal")

@@ -1,8 +1,8 @@
-from liga_globals import clear_screen, equipos_title, main_title, fechas_title, reportes_title
+from .liga_globals import clear_screen, equipos_title, main_title, fechas_title, reportes_title
 
-import logicaEquipos
-import logica_fechas
-import logica_reportes
+from . import logicaEquipos
+from . import logica_reportes
+from . import logica_fechas
 
 def menu_equipos():
     print(equipos_title)
