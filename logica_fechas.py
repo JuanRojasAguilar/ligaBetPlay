@@ -38,12 +38,12 @@ def editar_fecha(fecha):
   posicion_segundo_equipo = global_equipos[indice_segundo_equipo]
 
   posicion_primer_equipo['PJ'] += 1
-  posicion_primer_equipo['GF'] = goles_primer_equipo
-  posicion_primer_equipo['GC'] = goles_segundo_equipo
+  posicion_primer_equipo['GF'] += goles_primer_equipo
+  posicion_primer_equipo['GC'] += goles_segundo_equipo
 
   posicion_segundo_equipo['PJ'] += 1
-  posicion_segundo_equipo['GF'] = goles_segundo_equipo
-  posicion_segundo_equipo['GC'] = goles_primer_equipo
+  posicion_segundo_equipo['GF'] += goles_segundo_equipo
+  posicion_segundo_equipo['GC'] += goles_primer_equipo
 
   if goles_primer_equipo > goles_segundo_equipo:
     posicion_primer_equipo['PG'] += 1
@@ -56,7 +56,7 @@ def editar_fecha(fecha):
   else:
     posicion_primer_equipo["PE"] += 1
     posicion_primer_equipo["TP"] += 1
-    posicion_segundo_equipo["PP"] += 1
+    posicion_segundo_equipo["PE"] += 1
     posicion_segundo_equipo["TP"] += 1
 
   print(posicion_primer_equipo, posicion_segundo_equipo, sep="\n")

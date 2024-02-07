@@ -1,7 +1,8 @@
-from liga_globals import clear_screen, equipos_title, main_title, fechas_title
+from liga_globals import clear_screen, equipos_title, main_title, fechas_title, reportes_title
 
 import logicaEquipos
 import logica_fechas
+import logica_reportes
 
 def menu_equipos():
     print(equipos_title)
@@ -35,19 +36,31 @@ def menu_principal():
         exit()
 
 def menu_reportes():
-    print("Menu reportes")
-    print("A.Nombre del equipo con más goles anotados \nB.Nombre del equipo con más puntos \nC.Nombre del equipo con más partidos ganados \nD.Total de goles anotados por todos los equipos \nE.Promedio de goles anotados en el torneo \nF.Regresar al menú principal")
+    print(reportes_title)
+    print("A.Nombre del equipo con más goles anotados \nB.Nombre del equipo con más puntos \nC.Nombre del equipo con más partidos ganados \nD.Total de goles anotados por todos los equipos \nE.Promedio de goles anotados en el torneo \nF.Regresar al menú principal\n")
 
     option = input().upper()
 
     if option == 'A':
-        pass
+        clear_screen()
+        logica_reportes.equipo_mayor_goles()
+        menu_principal()
     elif option == 'B':
-        pass
+        clear_screen()
+        logica_reportes.equipo_mayor_puntos()
+        menu_principal()
     elif option == 'C':
-        pass
+        clear_screen()
+        logica_reportes.mayor_partidos_ganados()
+        menu_principal()
     elif option == 'D':
-        pass
+        clear_screen()
+        logica_reportes.total_goles()
+        menu_principal()
+    elif option == "E":
+        clear_screen()
+        logica_reportes.promedio_goles()
+        menu_principal()
     else:
         clear_screen()
         menu_principal()
