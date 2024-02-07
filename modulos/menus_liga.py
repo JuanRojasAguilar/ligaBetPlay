@@ -73,6 +73,11 @@ def menu_reportes():
         menu_principal()
     elif option == "F":
         menu_principal()
+    elif option == "X":
+        for equipo in global_equipos:
+            print(f"{equipo[0]}")
+        input("Presiona ENTER para volver")
+        menu_reportes()
     else:
         clear_screen()
         menu_reportes()

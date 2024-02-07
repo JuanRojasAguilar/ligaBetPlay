@@ -5,10 +5,10 @@ def clear_screen():
 
 global_equipos = []
 
-def encontrar_indice_equipo(equipo):
-  for i, equipos in enumerate(global_equipos):
-    if equipos[0] == equipo:
-      return i
+def encontrar_equipo(nombre):
+  for equipo in global_equipos:
+    equipo[0] == nombre
+    return equipo
 
 main_title = """
     ++++++++++++++++++++++++++++++
