@@ -3,41 +3,54 @@ from .liga_globals import fechas_title, clear_screen, global_equipos, encontrar_
 dias_juegos = ["06-feb-2024", "09-feb-2024", "11-feb-2024", "13-feb-2024", "17-feb-2024"]
 
 def agregar():
+  clear_screen()
   print(fechas_title)
   i = 1
   for dias in dias_juegos:
     print(i, dias)
     i += 1
   fecha = input('\nCuál fecha vas a editar? ')
+
+  if(len(global_equipos) < 2):
+    print("No hay suficientes equipos registrados, presiona ENTER")
+    input()
+    return
   if fecha == '1':
-    editar_fecha(dias_juegos[0])
+    editar_fecha()
   elif fecha == '2':
-    editar_fecha(dias_juegos[1])
+    editar_fecha()
   elif fecha == '3':
-    editar_fecha(dias_juegos[2])
+    editar_fecha()
   elif fecha == '4':
-    editar_fecha(dias_juegos[3])
+    editar_fecha()
   elif fecha == '5':
-    editar_fecha(dias_juegos[4])
+    editar_fecha()
   else:
     clear_screen()
+    agregar()
 
-def editar_fecha(fecha):
+def editar_fecha():
   primer_equipo = input("Cómo se llama el primer equipo? ").capitalize()
+  indice_primer_equipo = encontrar_indice_equipo(primer_equipo)
+  if not(indice_primer_equipo):
+    print("No existe ese equipo")
+    input("Pulsa ENTER para volver al menu principal")
+    agregar()
+
   segundo_equipo = input("Cómo se llama el segundo equipo? ").capitalize()
+  indice_segundo_equipo = encontrar_indice_equipo(segundo_equipo)
+  if not(indice_segundo_equipo):
+    print("No existe ese equipo")
+    input("Pulsa ENTER para volver al menu principal")
+    agregar()
+  
   clear_screen()
   print(fechas_title)
   goles_primer_equipo = int(input(f"Cuántos goles metió {primer_equipo}: "))
   goles_segundo_equipo = int(input(f"Cuantos goles metió {segundo_equipo}: "))
 
-
-  indice_primer_equipo = encontrar_indice_equipo(primer_equipo)
-  indice_segundo_equipo = encontrar_indice_equipo(segundo_equipo)
-
   posicion_primer_equipo = global_equipos[indice_primer_equipo]
   posicion_segundo_equipo = global_equipos[indice_segundo_equipo]
-
-  posicion_primer_equipo[0]
 
   posicion_primer_equipo[1] += 1
   posicion_primer_equipo[5] += goles_primer_equipo
