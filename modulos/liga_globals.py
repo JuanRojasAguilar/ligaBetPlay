@@ -7,8 +7,8 @@ global_equipos = []
 
 def encontrar_equipo(nombre):
   for equipo in global_equipos:
-    equipo[0] == nombre
-    return equipo
+    if equipo[0] == nombre:
+      return equipo
 
 main_title = """
     ++++++++++++++++++++++++++++++
